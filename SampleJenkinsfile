@@ -1,0 +1,19 @@
+apiVersion: "v1"
+kind: "BuildConfig"
+metadata:
+  name: "sample-build"
+spec:
+  output:
+    to:
+      kind: "ImageStreamTag"
+      name: "sample-image:latest"
+  source:
+    git:
+      uri: "https://github.com/saurabhhajra/app.git"
+    sourceSecret:
+      name: "basicsecret"
+  strategy:
+    sourceStrategy:
+      from:
+        kind: "ImageStreamTag"
+        name: "python-33-centos7:latest"
