@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: recreatedeployment1
+  name: recreatedeployment1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recreatedeployment1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: recreatedeployment1
+    spec:
+      containers:
+      - image: quay.io/mayank123modi/myserver
+        name: myserver
+        resources: {}
+status: {}
